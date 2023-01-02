@@ -1,0 +1,14 @@
+<h1>Wines</h1>
+<ul>
+{% for wine in object_list %}
+	<li>{{ wine.name }}
+		<ul>
+			<li>{{ wine.country }}</li>
+			<li>{{ wine.vintage }}</li>
+			<li>{{ wine.grape }}</li>
+		</ul>
+	</li>
+{% empty %}
+	<li>No wines yet.</li>
+{% endfor %}
+</ul>

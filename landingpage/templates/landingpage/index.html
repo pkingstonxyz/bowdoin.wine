@@ -1,0 +1,118 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>bowdoin.wine</title>
+		<meta charset="utf-8"/>
+		<style>
+			@import url('https://fonts.googleapis.com/css2?family=Forum&display=swap');
+			* {
+				font-family: 'Forum', serif;
+				margin: 0;
+				padding: 0;
+			}
+			header {
+				height: 200px;
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+				justify-content: space-around;
+				color: #4D2122;
+			}
+			header table {
+				height: 60%;
+				text-align: center;
+				vertical-align: middle;
+				flex-grow: 5;
+				font-size: 2em;
+			}
+			a {
+				text-decoration: none;
+				color: #4D2122;
+			}
+			td {
+				width: 25%;
+			}
+			.borders {
+				border-left: 5px solid #4D2122;
+			}
+			#logobox {
+				background-color: #4D2122;
+				border-radius: 100%;
+				height: 180px;
+				width: 180px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+			#logo {
+				height: 75%;
+				width: 75%;
+			}
+			header h1 {
+				font-size: 5em;
+			}
+			#background {
+				position: absolute;
+				top: 0;
+				left: 0;
+				z-index: -1;
+				width: 100%;
+				height: 100vh;
+				stretch: true;
+			}
+			body {
+				background-color: #181D21;
+			}
+			#about {
+				position: absolute;
+				top: 110vh;
+				left: 0;
+				height: 100vh;
+				width: 100vw;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				flex-direction: row;
+				overflow: hidden;
+			}
+			#wineglass img {
+				height: 90vh;
+			}
+			#pars {
+				color: white;
+				margin-left: 15px;
+				margin-right: 15px;
+				font-size: 2em;
+			}
+		</style>
+	</head>
+	<body>
+		<img id="background" src="{% static 'background.jpg' %}"/>
+		<header>
+			<div id="logobox">
+				<img id="logo" src="{% static 'logo.png' %}" alt="Bowdoin Wine Club logo"/>
+			</div>
+			<h1>Bowdoin<br>Wine Club</h1>
+			<table>
+				<tr>
+					<td><a href="{% url 'events' %}">Events</a></td>
+					<td class="borders"><a href="{% url 'wines' %}">Wine List</a></td>
+					<td class="borders"><a href="{% url 'notes' %}">Tasting Notes</a></td>
+					<td class="borders"><a href="#about">About Us</a></td>
+				</tr>
+			</table>
+		</header>
+		<div id="about">
+			<div id="wineglass">
+				<img src="{% static 'glass.png' %}"/>
+				<p id="aboutus">About<br>Us</p>
+			</div>
+			<div id="pars">
+				<h1>About Us</h1>
+				<p>Welcome to the Bowdoin Wine Club! We are a group of wine enthusiasts at Bowdoin College who are passionate about exploring and learning about different wines from around the world. Whether you are a seasoned wine connoisseur or just starting to discover your love for wine, you are welcome to join our club.</p>
+				<p>Our club meets regularly to taste and discuss a variety of wines from different regions. We welcome anyone who is interested in learning more about wine and exploring different varieties to join our club. We hope to see you at our next tasting!</p>
+			</div>
+		</div>
+	</body>
+</html>

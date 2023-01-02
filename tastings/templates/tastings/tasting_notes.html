@@ -1,0 +1,17 @@
+<form method="get">
+{{ filter.form.as_p }}
+	<input type="submit" />
+</form>
+
+<ul>
+	{% for note in filter.qs %}
+	<li><ul>
+			{% if user.is_authenticated %}
+				<li>{{ note.author }}</li>
+			{% endif %}
+			<li>{{ note.wine }}</li>
+			<li>{{ note.rating }}</li>
+			<li>{{ note.thoughts }}</li>
+		</ul></li>
+	{% endfor %}
+</ul>

@@ -1,0 +1,14 @@
+<h1>Events</h1>
+<ul>
+{% for event in object_list %}
+	<li>{{ event.title }}
+		<ul>
+			<li>{{ event.date }}</li>
+			<li>{{ event.location }}</li>
+			<li>{{ event.wines }}</li>
+		</ul>
+	</li>
+{% empty %}
+	<li>No wines yet.</li>
+{% endfor %}
+</ul>
