@@ -12,12 +12,13 @@
 				padding: 0;
 			}
 			header {
-				height: 200px;
 				display: flex;
 				flex-direction: row;
 				align-items: center;
 				justify-content: space-around;
 				color: #4D2122;
+				flex-wrap: wrap;
+				background: #E6E9F299;
 			}
 			header table {
 				height: 60%;
@@ -44,10 +45,11 @@
 				display: flex;
 				justify-content: center;
 				align-items: center;
+				margin: 10px;
 			}
 			#logo {
-				height: 75%;
-				width: 75%;
+				height: 125px;
+				width: 135px;
 			}
 			header h1 {
 				font-size: 5em;
@@ -57,9 +59,10 @@
 				top: 0;
 				left: 0;
 				z-index: -1;
-				width: 100%;
+				object-fit: cover;
+				object-position: bottom center;
 				height: 100vh;
-				stretch: true;
+				width: 100vw;
 			}
 			body {
 				background-color: #181D21;
@@ -71,19 +74,31 @@
 				height: 100vh;
 				width: 100vw;
 				display: flex;
-				justify-content: space-between;
+				justify-content: center;
 				align-items: center;
 				flex-direction: row;
-				overflow: hidden;
+				flex-wrap: wrap;
+				color: white;
 			}
 			#wineglass img {
-				height: 90vh;
+				height: 75vmin;
+				width: 75vmin;
+			}
+			#wineglass h1 {
+				position: relative;
+				top: -50vmin;
+				font-size: 2em;
+				font-size:10vmin;
+			}
+			#wineglass {
+				font-size: 2em;
+				text-align: center;
 			}
 			#pars {
-				color: white;
 				margin-left: 15px;
 				margin-right: 15px;
 				font-size: 2em;
+				width: 50vmax;
 			}
 		</style>
 	</head>
@@ -106,10 +121,9 @@
 		<div id="about">
 			<div id="wineglass">
 				<img src="{% static 'glass.png' %}"/>
-				<p id="aboutus">About<br>Us</p>
+				<h1>About Us</h1>
 			</div>
 			<div id="pars">
-				<h1>About Us</h1>
 				<p>Welcome to the Bowdoin Wine Club! We are a group of wine enthusiasts at Bowdoin College who are passionate about exploring and learning about different wines from around the world. Whether you are a seasoned wine connoisseur or just starting to discover your love for wine, you are welcome to join our club.</p>
 				<p>Our club meets regularly to taste and discuss a variety of wines from different regions. We welcome anyone who is interested in learning more about wine and exploring different varieties to join our club. We hope to see you at our next tasting!</p>
 			</div>

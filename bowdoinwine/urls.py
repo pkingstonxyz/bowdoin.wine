@@ -4,6 +4,7 @@ from django.urls import path
 from landingpage import views as landing
 from accounts import views as accounts
 from tastings import views as tastings
+from survey import views as survey
 
 urlpatterns = [
     # Landing page
@@ -14,6 +15,8 @@ urlpatterns = [
     path('events/', tastings.EventList.as_view(), name='events'),
     # TastingNotes
     path('tastingnotes/', tastings.tasting_notes, name='notes'),
+    # Survey
+    path('survey/', survey.Survey.as_view(), name='survey'),
     # Account management/logins
     path('accounts/login/', accounts.Login.as_view(), name='login'),
     path('accounts/logout/', accounts.Logout.as_view(), name='logout'),
