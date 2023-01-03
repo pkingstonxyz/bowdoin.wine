@@ -1,14 +1,26 @@
-<h1>Events</h1>
-<ul>
+{% extends "tastings/base.html" %}
+
+{% block name %}Events{% endblock %}
+{% block fullname %}Events{% endblock %}
+
+{% block content %}
+<table>
+	<tr>
+		<th>Title</th>
+		<th>Date</th>
+		<th>Location</th>
+		<th>Wines</th>
+	</tr>
 {% for event in object_list %}
-	<li>{{ event.title }}
-		<ul>
-			<li>{{ event.date }}</li>
-			<li>{{ event.location }}</li>
-			<li>{{ event.wines }}</li>
-		</ul>
-	</li>
+	<tr>
+		<li>{{ event.title }}</li>
+		<li>{{ event.date }}</li>
+		<li>{{ event.location }}</li>
+		<li>{{ event.wines }}</li>
+	</tr>
 {% empty %}
-	<li>No wines yet.</li>
+</table>
+<h1>No wines yet.</h1>
 {% endfor %}
 </ul>
+{% endblock %}

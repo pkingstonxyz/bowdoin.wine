@@ -8,7 +8,6 @@ User = get_user_model()
 
 class TastingNoteFilter(filters.FilterSet):
     wine = filters.ModelMultipleChoiceFilter(queryset=Wine.objects.all())
-    author = filters.ModelMultipleChoiceFilter(queryset=User.objects.all())
     event = filters.ModelMultipleChoiceFilter(queryset=Event.objects.all())
     class Meta:
         model = TastingNote
@@ -25,10 +24,28 @@ def tasting_notes(request):
     }
     return render(request, 'tastings/tasting_notes.html', context)
 
-class WineList(ListView):
-    model = Wine
-    paginate_by = 20
-    template_name = "tastings/winelist.html"
+class WineListFilter(filters.FilterSet):
+    class Meta:
+        model = Wine
+        fields = {
+            'brand': ['icontains'], 
+            'producer': ['icontains'],
+            'country': ['icontains'],
+            'region': ['icontains'],
+            'name': ['icontains'],
+            'grape': ['icontains'],
+            'vintage': ['exact'],
+            'fortified': ['exact'],
+            'sparkling': ['exact'],
+            'dessert': ['exact'],
+            'color':['exact'],
+        }
+def winelist(request):
+    f = WineListFilter(request.GET, queryset=Wine.objects.all())
+    context = {
+        'filter': f,
+    }
+    return render(request, 'tastings/winelist.html', context)
 
 class EventList(ListView):
     model = Event

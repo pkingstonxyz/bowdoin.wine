@@ -10,7 +10,7 @@ urlpatterns = [
     # Landing page
     path('', landing.landing, name='landing'),
     # Wines
-    path('wines/', tastings.WineList.as_view(), name='wines'),
+    path('wines/', tastings.winelist ,name='wines'),
     # Events
     path('events/', tastings.EventList.as_view(), name='events'),
     # TastingNotes

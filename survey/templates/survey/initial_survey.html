@@ -1,5 +1,106 @@
-<form method="POST">
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Survey - Bowdoin.wine</title>
+	<meta charset="utf-8"/>
+	<style>
+			@import url('https://fonts.googleapis.com/css2?family=Forum&display=swap');
+		* {
+			font-family: 'Forum', serif;
+			margin: 0;
+			padding: 0;
+		}
+		body {
+			background-color: #E6E9F2;
+			color: #4D2122;
+		}
+		header {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			justify-content: space-around;
+			color: #4D2122;
+			flex-wrap: wrap;
+		}
+		header table {
+			height: 60%;
+			text-align: center;
+			vertical-align: middle;
+			flex-grow: 5;
+			font-size: 2em;
+		}
+		a {
+			text-decoration: none;
+			color: #4D2122;
+		}
+		td {
+			width: 20%;
+		}
+		.borders {
+			border-left: 5px solid #4D2122;
+		}
+		#logobox {
+			background-color: #4D2122;
+			border-radius: 100%;
+			height: 180px;
+			width: 180px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			margin: 10px;
+		}
+		#logo {
+			height: 125px;
+			width: 135px;
+		}
+		header h1 {
+			font-size: 5em;
+		}
+		form {
+			font-size: 1.5rem;
+			margin: 20px;
+		}
+		body h1 {
+			font-size: 4rem;
+			margin-left: 20px;
+		}
+		form p {
+			color: white;
+			padding: 5px;
+		}
+		form p:nth-child(even) {
+			background: #516A4D;
+		}
+		form p:nth-child(odd) {
+			background: #537c50;
+		}
+		input {
+			margin-top: 5px;
+			font-size: 1em;
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<div id="logobox">
+			<img id="logo" src="{% static 'logo.png' %}" alt="Bowdoin Wine Club logo"/>
+		</div>
+		<h1>Bowdoin<br>Wine Club</h1>
+		<table>
+			<tr>
+				<td><a href="{% url 'events' %}">Events</a></td>
+				<td class="borders"><a href="{% url 'wines' %}">Wine List</a></td>
+				<td class="borders"><a href="{% url 'notes' %}">Tasting Notes</a></td>
+				<td class="borders"><a href="{% url 'landing' %}">Home</a></td>
+			</tr>
+		</table>
+	</header>
+	<h1>Survey</h1>
+	<form method="POST">
     {% csrf_token %}
     {{ form.as_p }}
-    <input type="submit" value="Submit">
-</form>
+    <input type="submit" value="Submit"/>
+	</form>
+</body>
+</html>

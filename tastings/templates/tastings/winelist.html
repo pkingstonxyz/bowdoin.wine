@@ -1,14 +1,41 @@
-<h1>Wines</h1>
-<ul>
-{% for wine in object_list %}
-	<li>{{ wine.name }}
-		<ul>
-			<li>{{ wine.country }}</li>
-			<li>{{ wine.vintage }}</li>
-			<li>{{ wine.grape }}</li>
-		</ul>
-	</li>
+{% extends "tastings/base.html" %}
+{% block style %}
+{% endblock %}
+{% block name %}Wine List{% endblock %}
+{% block fullname %}Wine<br>List{% endblock %}
+
+{% block content %}
+<form method="get">
+	{{ filter.form.as_p }}
+	<input type="submit" value="Submit Filter"/>
+</form>
+
+<table>
+<tr>
+	<th>Brand</th>
+	<th>Producer</th>
+	<th>Country</th>
+	<th>Region</th>
+	<th>Name</th>
+	<th>Fortified</th>
+	<th>Sparkling</th>
+	<th>Dessert</th>
+	<th>Color</th>
+</tr>
+{% for wine in filter.qs %}
+<tr>
+	<td>{{ wine.brand }}</td>
+	<td>{{ wine.producer }}</td>
+	<td>{{ wine.country }}</td>
+	<td>{{ wine.region }}</td>
+	<td>{{ wine.name }}</td>
+	<td class="{{wine.fortified}}">{{ wine.fortified }}</td>
+	<td class="{{wine.sparkling}}">{{ wine.sparkling }}</td>
+	<td class="{{wine.dessert}}">{{ wine.dessert }}</td>
+	<td>{{ wine.color }}</td> 
+</tr>
 {% empty %}
-	<li>No wines yet.</li>
+<h1>No wines yet! Check again after we've had an event.</h1>
 {% endfor %}
-</ul>
+</table>
+{% endblock %}

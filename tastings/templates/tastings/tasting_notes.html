@@ -1,17 +1,38 @@
+{% extends "tastings/base.html" %}
+{% block name %}Tasting Notes{% endblock %}
+{% block fullname %}Tasting<br>Notes{% endblock %}
+{% block content %}
 <form method="get">
-{{ filter.form.as_p }}
-	<input type="submit" />
+	{{ filter.form.as_p }}
+	<input type="submit" value="Submit Filter"/>
 </form>
 
-<ul>
-	{% for note in filter.qs %}
-	<li><ul>
-			{% if user.is_authenticated %}
-				<li>{{ note.author }}</li>
-			{% endif %}
-			<li>{{ note.wine }}</li>
-			<li>{{ note.rating }}</li>
-			<li>{{ note.thoughts }}</li>
-		</ul></li>
-	{% endfor %}
-</ul>
+<table>
+<tr>
+	<th>Wine</th>
+	<th>Rating</th>
+	<th>Event</th>
+	<th>Thoughts</th>
+</tr>
+{% for note in filter.qs %}
+<tr>
+	<td>{{ note.wine }}</td>
+	{% if note.rating == 1 %}
+	<td>Horrible</td>
+	{% elif note.rating == 2 %}
+	<td>Not for me</td>
+	{% elif note.rating == 3 %}
+	<td>It was wine</td>
+	{% elif note.rating == 4 %}
+	<td>I liked it</td>
+	{% elif note.rating == 5 %}
+	<td>Loved it</td>
+	{% endif %}
+	<td>{{ note.event }}</td>
+	<td>{{ note.thoughts }}</td>
+</tr>
+{% empty %}
+<h1>No Tasting Notes yet! Check again after we've had an event.</h1>
+{% endfor %}
+</table>
+{% endblock %}

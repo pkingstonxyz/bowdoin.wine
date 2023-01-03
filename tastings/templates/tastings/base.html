@@ -1,0 +1,118 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>{% block name %}{% endblock name %} - Bowdoin.wine</title>
+		<meta charset="utf-8">
+		<style>
+			@import url('https://fonts.googleapis.com/css2?family=Forum&display=swap');
+			* {
+				font-family: 'Forum', serif;
+				margin: 0;
+				padding: 0;
+			}
+			body {
+				background-color: #E6E9F2;
+			}
+			header {
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+				justify-content: space-around;
+				color: #4D2122;
+				flex-wrap: wrap;
+			}
+			header table {
+				height: 60%;
+				text-align: center;
+				vertical-align: middle;
+				flex-grow: 5;
+				font-size: 2em;
+			}
+			a {
+				text-decoration: none;
+				color: #4D2122;
+			}
+			header td {
+				width: 25%;
+			}
+			.borders {
+				border-left: 5px solid #4D2122;
+			}
+			#logobox {
+				background-color: #4D2122;
+				border-radius: 100%;
+				height: 180px;
+				width: 180px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				margin: 10px;
+			}
+			#logo {
+				height: 125px;
+				width: 135px;
+			}
+			header h1 {
+				font-size: 5em;
+			}
+			main {
+				display: flex;
+				flex-direction: row;
+				flex-wrap: wrap;
+				font-size: 1.25em;
+				justify-content: space-evenly;
+			}
+			form p {
+				display: flex;
+				justify-content: space-between;
+			}
+			form input {
+				font-size: 1.25rem;
+			}
+			form {
+				color: #4D2122;
+			}
+			main table {
+				background-color: #516A4D;
+				color: #E6E9F2;
+				border-collapse: collapse;
+			}
+			main table tr:nth-child(even) {
+			 background-color: #537c50;
+			}
+			main td {
+				padding: 5px;
+			}
+			main th {
+				padding: 5px;
+			}
+			main table th {
+				border-bottom: 7px solid #4D2122;
+			}
+			main table th {
+				text-decoration: underline;
+			}
+			{% block style %}{% endblock style %}
+		</style>
+	</head>
+	<body>
+		<header>
+			<div id="logobox">
+				<img id="logo" src="{% static 'logo.png' %}" alt="Bowdoin Wine Club logo"/>
+			</div>
+			<h1>{% block fullname %}{% endblock %}</h1>
+			<table>
+				<tr>
+					<td><a href="{% url 'events' %}">Events</a></td>
+					<td class="borders"><a href="{% url 'wines' %}">Wine List</a></td>
+					<td class="borders"><a href="{% url 'notes' %}">Tasting Notes</a></td>
+					<td class="borders"><a href="{% url 'landing' %}">Home</a></td>
+				</tr>
+			</table>
+		</header>
+		<main>
+		{% block content %}{% endblock content %}
+		</main>
+	</body>
+</html>
