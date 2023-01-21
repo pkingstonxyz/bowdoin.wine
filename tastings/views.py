@@ -37,7 +37,6 @@ class WineListFilter(filters.FilterSet):
             'vintage': ['exact'],
             'fortified': ['exact'],
             'sparkling': ['exact'],
-            'dessert': ['exact'],
             'color':['exact'],
         }
 def winelist(request):
