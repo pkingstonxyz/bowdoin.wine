@@ -13,10 +13,10 @@
 	</tr>
 {% for event in object_list %}
 	<tr>
-		<li>{{ event.title }}</li>
-		<li>{{ event.date }}</li>
-		<li>{{ event.location }}</li>
-		<li>{{ event.wines }}</li>
+		<td>{{ event.title }}</td>
+		<td>{{ event.date }}</td>
+		<td>{{ event.location }}</td>
+		<td>{{ event.wines }}</td>
 	</tr>
 {% empty %}
 </table>
