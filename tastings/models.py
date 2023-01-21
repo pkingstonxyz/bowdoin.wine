@@ -13,7 +13,6 @@ class Wine(models.Model):
 
     fortified = models.BooleanField()
     sparkling = models.BooleanField()
-    dessert = models.BooleanField()
     color = models.CharField(max_length=5) #Red, White, or Rosé
 
     def __str__(self):
