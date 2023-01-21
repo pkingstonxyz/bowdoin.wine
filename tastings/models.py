@@ -17,7 +17,7 @@ class Wine(models.Model):
 
     def __str__(self):
         vintage = self.vintage if self.vintage else "Unknown Vintage"
-        return f"{self.brand} {self.name} - {vintage}"
+        return f"{self.name} - {vintage}"
 
 class Event(models.Model):
     title = models.CharField(max_length=100)
