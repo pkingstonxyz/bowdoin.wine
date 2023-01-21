@@ -5,8 +5,6 @@ from .models import InitialSurveyResponse
 class InitialSurveyAdmin(admin.ModelAdmin):
     fields = ['name',
               'email',
-              'meeting_preference',
-              'oneglassorseveral',
-              'pay']
+              'favoritewine']
 
 admin.site.register(InitialSurveyResponse, InitialSurveyAdmin)

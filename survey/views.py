@@ -6,9 +6,7 @@ class Survey(CreateView):
     fields = [
         'name',
         'email',
-        'meeting_preference',
-        'oneglassorseveral',
-        'pay',
+        'favoritewine',
     ]
     template_name = "survey/initial_survey.html"
     success_url = "/"
