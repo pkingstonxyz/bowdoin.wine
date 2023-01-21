@@ -12,7 +12,6 @@ class WineAdmin(admin.ModelAdmin):
               'vintage',
               'fortified',
               'sparkling',
-              'desert',
               'color']
 class EventAdmin(admin.ModelAdmin):
     fields = ['title',
