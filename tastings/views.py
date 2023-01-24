@@ -48,5 +48,5 @@ def winelist(request):
 
 class EventList(ListView):
     model = Event
-    paginate_by = 10
     template_name = "tastings/eventlist.html"
+    ordering = ['date']
