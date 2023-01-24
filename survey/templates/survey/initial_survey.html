@@ -113,6 +113,7 @@
 	<h1>Survey</h1>
 	<form method="POST">
     {% csrf_token %}
+		<p>Leave your contact information and I'll be in contact with you about meeting very soon.</p>
     {{ form.as_p }}
     <input type="submit" value="Submit"/>
 	</form>

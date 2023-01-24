@@ -8,4 +8,4 @@ class InitialSurveyResponse(models.Model):
                               verbose_name="What is your Bowdoin email address?")
     favoritewine = models.CharField(max_length=200,
                                     blank=True,
-                                   verbose_name="Favorite wine? (optional)")
+                                   verbose_name="Favorite wine?")
